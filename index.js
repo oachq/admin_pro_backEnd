@@ -14,6 +14,9 @@ app.use(expres.json());
 // conectar base de datos
 dbConnection();
 
+// Directorio publico
+app.use(expres.static('public'));
+
 //configuracion de cors 
 app.use(cors());
 
