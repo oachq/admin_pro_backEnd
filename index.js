@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 
 const expres = require('express');
 const cors = require('cors');
@@ -28,7 +29,10 @@ app.use('/api/todo', require('./routes/busquedas'));
 app.use('/api/uploads', require('./routes/uploads'));
 app.use('/api/login', require('./routes/auth'));
 
-
+// lo ultimo
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public/index.html'));
+})
 
 app.listen(process.env.PORT, () => {
     console.log('Server run en puerto: ' + process.env.PORT)
